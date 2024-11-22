@@ -1,10 +1,11 @@
 
-import { createClient } from "./client";
+import { createClient } from "./server";
 
 import { type QueryData } from "@supabase/supabase-js";
 
 export const getHomePosts = () => {
     const supabase = createClient()
+    
     return supabase 
     .from('posts')
     .select('id, title, slug, content, user("email")')
